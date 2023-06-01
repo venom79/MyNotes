@@ -83,7 +83,7 @@ function showNotes() {
 // deleting notes
 function deleteNote(index) {
     // console.log("deleting ", index);
-    let userDecision = confirm("do you really want to delete this Note?");
+    let userDecision = confirm("This Note will be deleted permantly?");
     if(userDecision == true){
         let title = localStorage.getItem('title');
         let notes = localStorage.getItem('notes');

@@ -10,7 +10,10 @@
     margin: 10px;
 }
 #Navbar input{
-    left:0px;
+    width: 99px;
+    font-size: 16px;
+    position: relative;
+    right: 10px;
 }
 /* addNote section */
 #addNote h1{

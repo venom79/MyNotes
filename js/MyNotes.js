@@ -108,11 +108,12 @@ function deleteNote(index) {
 // search notes with title
 let search = document.getElementById('searchTitle');
 search.addEventListener('input',function(){
-    let inputval = search.value.innerText.toLowerCase();
-    // console.log("event fired",inputval);
+    let inputval = search.value;
+    console.log("event fired",inputval.toLowerCase());
     let notecard = document.getElementsByClassName('note-card');
     Array.from(notecard).forEach(function(element){
-        let cardTitle = element.getElementsByTagName('h2')[0].innerText.toLowerCase();
+        let cardTitle = element.getElementsByTagName('h2')[0].innerText;
+        cardTitle = cardTitle.toLowerCase();
         // console.log(cardTitle);
         if(cardTitle.includes(inputval)){
             element.style.display = "block";
@@ -121,5 +122,6 @@ search.addEventListener('input',function(){
             element.style.display = "none";
         }
     })
-
+    
 })
+

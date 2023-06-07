@@ -52,8 +52,8 @@ function showNotes() {
                     <h2>undefined</h2>
                     <hr>
                     <p>${element}</p>
-                </div>
-                <button id=${index} class="btn" onclick="deleteNote(this.id)" >Delete Note</button>
+                </div>               
+                <button id=${index} class="btn danger" onclick="deleteNote(this.id)" >Delete Note</button>
                 </div>
             `; 
         }
@@ -65,7 +65,7 @@ function showNotes() {
                     <hr>
                     <p>${element}</p>
                 </div>
-                <button id=${index} class="btn" onclick="deleteNote(this.id)" >Delete Note</button>
+                <button id=${index} class="btn danger" onclick="deleteNote(this.id)" >Delete Note</button>
             </div>
         `;
         }
@@ -75,7 +75,7 @@ function showNotes() {
         noteselm.innerHTML = html;
     }
     else {
-        noteselm.innerHTML = `<p>Nothing to show! use "Add a note" section to Add a note!</p>`;
+        noteselm.innerHTML = `<p font-family: 'Playfair', serif;>Nothing to show! use "Add a note" section to Add a note!</p>`;
     }
 
 }
@@ -83,7 +83,7 @@ function showNotes() {
 // deleting notes
 function deleteNote(index) {
     // console.log("deleting ", index);
-    let userDecision = confirm("This Note will be deleted permantly?");
+    let userDecision = confirm("This Note will be deleted permantly!");
     if(userDecision == true){
         let title = localStorage.getItem('title');
         let notes = localStorage.getItem('notes');
@@ -108,11 +108,11 @@ function deleteNote(index) {
 // search notes with title
 let search = document.getElementById('searchTitle');
 search.addEventListener('input',function(){
-    let inputval = search.value;
+    let inputval = search.value.innerText.toLowerCase();
     // console.log("event fired",inputval);
     let notecard = document.getElementsByClassName('note-card');
     Array.from(notecard).forEach(function(element){
-        let cardTitle = element.getElementsByTagName('h2')[0].innerText;
+        let cardTitle = element.getElementsByTagName('h2')[0].innerText.toLowerCase();
         // console.log(cardTitle);
         if(cardTitle.includes(inputval)){
             element.style.display = "block";
